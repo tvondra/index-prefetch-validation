@@ -1,0 +1,40 @@
+SET
+SET
+SET
+SET
+SET
+                                                                    QUERY PLAN                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using idx on public.t (actual rows=65536.00 loops=1)
+   Output: a, b
+   Index Cond: ((t.a >= '-79432'::integer) AND (t.a <= '-13897'::integer))
+   Index Searches: 1
+   Prefetch: distance=241.396 count=64798 stalls=2 skipped=818 resets=0 ungets=93 forwarded=8
+             histogram [2,4) => 2, [4,8) => 5, [8,16) => 6, [16,32) => 11, [32,64) => 15, [64,128) => 562, [128,256) => 38637, [256,512) => 25560
+   Buffers: shared hit=63618 read=1286
+ Settings: enable_bitmapscan = 'off', enable_seqscan = 'off', max_parallel_workers_per_gather = '0'
+ Planning:
+   Buffers: shared hit=86 read=26
+ Planning Time: 1.983 ms
+ Execution Time: 20.015 ms
+(12 rows)
+
+SET
+SET
+SET
+SET
+SET
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Index Scan using idx on public.t (actual rows=65536.00 loops=1)
+   Output: a, b
+   Index Cond: ((t.a >= '-79432'::integer) AND (t.a <= '-13897'::integer))
+   Index Searches: 1
+   Buffers: shared hit=64904
+ Settings: enable_bitmapscan = 'off', enable_seqscan = 'off', max_parallel_workers_per_gather = '0'
+ Planning:
+   Buffers: shared hit=117
+ Planning Time: 0.177 ms
+ Execution Time: 5.997 ms
+(10 rows)
+

@@ -1,0 +1,36 @@
+SET
+SET
+SET
+SET
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Index Scan Backward using idx on public.t (actual rows=9048576.00 loops=1)
+   Output: a, b
+   Index Cond: ((t.a >= '-4527076'::integer) AND (t.a <= '-2789'::integer))
+   Index Searches: 1
+   Buffers: shared hit=7880844 read=106877
+ Settings: enable_bitmapscan = 'off', enable_seqscan = 'off', max_parallel_workers_per_gather = '0'
+ Planning:
+   Buffers: shared hit=77 read=27
+ Planning Time: 6.317 ms
+ Execution Time: 11571.695 ms
+(10 rows)
+
+SET
+SET
+SET
+SET
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Index Scan Backward using idx on public.t (actual rows=9048576.00 loops=1)
+   Output: a, b
+   Index Cond: ((t.a >= '-4527076'::integer) AND (t.a <= '-2789'::integer))
+   Index Searches: 1
+   Buffers: shared hit=7987721
+ Settings: enable_bitmapscan = 'off', enable_seqscan = 'off', max_parallel_workers_per_gather = '0'
+ Planning:
+   Buffers: shared hit=109
+ Planning Time: 0.501 ms
+ Execution Time: 2509.891 ms
+(10 rows)
+
